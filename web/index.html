@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Log Monitor</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Operations Console</p>
+          <h1>Customer Log Monitor</h1>
+        </div>
+        <button id="refreshBtn">Refresh</button>
+      </header>
+
+      <section class="controls">
+        <input id="searchInput" placeholder="Search customer, email, or message..." />
+        <select id="severitySelect">
+          <option value="all">All severities</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+          <option value="critical">Critical</option>
+        </select>
+        <label class="check">
+          <input type="checkbox" id="followUpOnly" />
+          Follow-up required only
+        </label>
+      </section>
+
+      <section class="stats" id="stats"></section>
+
+      <section class="panel">
+        <table>
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Event</th>
+              <th>Severity</th>
+              <th>Owner</th>
+              <th>Created</th>
+              <th>Follow-up</th>
+            </tr>
+          </thead>
+          <tbody id="logBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
