@@ -31,6 +31,42 @@ curl -s http://localhost:8000/api/health
 curl -s "http://localhost:8000/api/logs?follow_up_only=true&severity=high"
 ```
 
+## Workflow diagram (customer call follow-up)
+
+```mermaid
+flowchart TD
+    A[Customer call comes in] --> B[Agent logs issue in DB]\
+    B --> C[Record stored in customer_logs\nname, email, event, severity, follow_up_required]
+    C --> D[Operations opens Customer Log Monitor]
+    D --> E[Use search + severity + follow-up filters]
+    E --> F[Prioritize high/critical and follow-up-required items]
+    F --> G[Assign owner and contact customer]
+    G --> H[Follow-up completed]
+```
+
+## How this app works (system diagram)
+
+```mermaid
+sequenceDiagram
+    participant U as User (Browser)
+    participant UI as Dashboard UI (HTML/CSS/JS)
+    participant API as Python HTTP Server (app.py)
+    participant DB as SQLite (logs.db)
+
+    U->>UI: Open / and set filters
+    UI->>API: GET /api/logs?search&severity&follow_up_only
+    API->>DB: Run filtered SQL query
+    DB-->>API: Return matching rows
+    API-->>UI: JSON { logs, generated_at }
+    UI-->>U: Render table + stats cards
+
+    U->>UI: Refresh or change filters
+    UI->>API: GET /api/logs ... (new query)
+
+    U->>API: GET /api/health
+    API-->>U: {"status":"ok"}
+```
+
 ## Features
 
 - Search by customer, email, or message
