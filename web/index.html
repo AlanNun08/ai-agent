@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Log Monitor</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section id="authPanel" class="auth-wrap">
+        <div class="auth-card">
+          <h2>Secure Sign In</h2>
+          <p class="muted">Access only your customer logs.</p>
+          <form id="loginForm" class="form-grid">
+            <input id="loginEmail" type="email" placeholder="Email" required />
+            <input id="loginPassword" type="password" placeholder="Password" required />
+            <button type="submit">Sign In</button>
+          </form>
+          <p class="hint">Demo: ops@example.com / ChangeMe123!</p>
+        </div>
+
+        <div class="auth-card">
+          <h2>Create Account</h2>
+          <p class="muted">Passwords must be at least 10 characters.</p>
+          <form id="signupForm" class="form-grid">
+            <input id="signupName" type="text" placeholder="Full name" required />
+            <input id="signupEmail" type="email" placeholder="Email" required />
+            <input id="signupPassword" type="password" placeholder="Password" required />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="appPanel" class="hidden">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Operations Console</p>
+            <h1>Customer Log Monitor</h1>
+            <p class="muted" id="whoami"></p>
+          </div>
+          <div class="actions">
+            <button id="refreshBtn">Refresh</button>
+            <button id="logoutBtn" class="secondary">Logout</button>
+          </div>
+        </header>
+
+        <section class="controls">
+          <input id="searchInput" placeholder="Search customer, email, or message..." />
+          <select id="severitySelect">
+            <option value="all">All severities</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="critical">Critical</option>
+          </select>
+          <label class="check">
+            <input type="checkbox" id="followUpOnly" />
+            Follow-up required only
+          </label>
+        </section>
+
+        <section class="stats" id="stats"></section>
+
+        <section class="panel">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Event</th>
+                <th>Severity</th>
+                <th>Owner</th>
+                <th>Created</th>
+                <th>Follow-up</th>
+              </tr>
+            </thead>
+            <tbody id="logBody"></tbody>
+          </table>
+        </section>
+      </section>
+      <p id="status" class="status"></p>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
