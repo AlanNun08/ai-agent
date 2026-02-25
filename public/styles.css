@@ -1,0 +1,13 @@
+body { font-family: Arial, sans-serif; background: #f5f7fb; margin: 0; }
+main { max-width: 420px; margin: 3rem auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+h1 { font-size: 1.3rem; margin-top: 0; }
+.tabs { display: flex; gap: .5rem; margin-bottom: 1rem; }
+button { padding: .6rem .9rem; border: 1px solid #ccc; background: #f0f0f0; border-radius: 8px; cursor: pointer; }
+button.active { background: #1249d8; color: #fff; border-color: #1249d8; }
+form { display: grid; gap: .75rem; }
+label { display: grid; gap: .35rem; font-size: .95rem; }
+input { padding: .55rem .65rem; border: 1px solid #bbb; border-radius: 8px; }
+#submit-btn { background: #1249d8; color: #fff; border-color: #1249d8; }
+.hint { font-size: .85rem; color: #555; margin: 0; }
+#message { min-height: 1.2rem; margin-top: 1rem; }
+.hidden { display: none; }

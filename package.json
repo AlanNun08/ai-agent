@@ -1,0 +1,11 @@
+{
+  "name": "ai-agent-auth-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Secure login/signup demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}

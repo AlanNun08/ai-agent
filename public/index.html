@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Auth</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Secure Login / Signup</h1>
+    <div class="tabs">
+      <button id="show-login" class="active">Login</button>
+      <button id="show-signup">Sign Up</button>
+    </div>
+
+    <form id="auth-form" novalidate>
+      <label>Email
+        <input id="email" type="email" autocomplete="email" required />
+      </label>
+      <label>Password
+        <input id="password" type="password" autocomplete="current-password" required />
+      </label>
+      <p id="policy" class="hint hidden">Password must be at least 12 chars and include upper/lowercase, number, and symbol.</p>
+      <button type="submit" id="submit-btn">Login</button>
+    </form>
+
+    <button id="logout" class="hidden">Logout</button>
+    <p id="message" aria-live="polite"></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
